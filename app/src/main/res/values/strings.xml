@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MusMarket</string>
+    <!--<string name="google_maps_key">AIzaSyCx7iRUaQn6F92TLI7YQspduZPgezXi9t4</string>-->
+    <string name="google_maps_key">AIzaSyDchkptRNY1cb9AR-GEoLGUnxs5oOoCjko</string>
+
+    <string name="network_unavailable">Your device is not connected with internet.</string>
+    <string name="something_went_wrong">Something went wrong, please try again</string>
+    <string name="btn_accept">Accept</string>
+    <string name="permissions_location_remind">Application requires permissions to work with maps. Please, change application permissions in system settings</string>
+    <string name="permissions_phone_remind">Application requires permissions to make phone calls. Please, change application permissions in system settings</string>
+    <string name="send_email_caption">Send Email</string>
+    <string name="address">Address:</string>
+    <string name="phone">Phone:</string>
+    <string name="website">WebSite:</string>
+    <string name="email">Email:</string>
+    <string name="instruments">Instruments:</string>
+    <string name="quantity">Quantity:</string>
+    <string name="price">Price:</string>
+    <string name="instruments_list">Instruments</string>
+    <string name="value_stub">-</string>
+</resources>

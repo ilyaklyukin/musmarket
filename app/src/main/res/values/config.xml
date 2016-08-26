@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="base_stores_url">http://aschoolapi.appspot.com</string>
+    <integer name="market_city_latitude">51670833</integer>
+    <integer name="market_city_longitude">39214167</integer>
+    <integer name="map_zoom">11</integer>
+</resources>
