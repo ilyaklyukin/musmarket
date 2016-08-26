@@ -1,19 +1,19 @@
-TODO :
+## TODO :
 
-1) Use styles and @dimen in layouts.
-2) Extract logic from main activity to other classes.
-3) Use JobManager for getting instruments
-4) Implement user-friendly UI ;)
-5) Add progressbars
+1. Use styles and @dimen in layouts.
+2. Extract logic from main activity to other classes.
+3. Use JobManager for getting instruments
+4. Implement user-friendly UI ;)
+5. Add progressbars
 
-NB:
+## NB:
 
-1) Service doesn't contain emails for stores, but Intent is implemented
-2) All stores contain the same list of instruments: it's not a app's bug.
+1. Service doesn't contain emails for stores, but Intent is implemented
+2. All stores contain the same list of instruments: it's not a app's bug.
 
 
 ********************************
-REQUIREMENTS:
+## REQUIREMENTS:
 ********************************
 
 Android: Shops List
