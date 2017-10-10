@@ -1,5 +1,6 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:layout_gravity="center"
@@ -19,28 +20,30 @@
             android:paddingLeft="25dp"
             android:paddingTop="25dp"
             android:textColor="@android:color/black"
+
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/instrument_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/instrument_type"
             android:paddingLeft="15dp"
+            android:layout_toRightOf="@+id/instrument_type"
             android:paddingTop="25dp"
             android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+             />
 
         <TextView
             android:id="@+id/brand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:layout_below="@+id/instrument_type"
-            android:paddingLeft="25dp"
 
+            android:paddingLeft="25dp"
             android:paddingTop="2dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <TextView
@@ -50,37 +53,35 @@
             android:layout_below="@+id/brand"
             android:paddingLeft="25dp"
             android:paddingTop="15dp"
-            android:text="@string/price"
+            android:text="Price:"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="20sp" />
-
         <TextView
             android:id="@+id/price_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/brand"
             android:layout_toRightOf="@+id/price"
-            android:paddingLeft="10dp"
+            android:layout_below="@+id/brand"
+             android:paddingLeft="10dp"
             android:paddingTop="15dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="20sp" />
-
         <TextView
             android:id="@+id/quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/brand"
             android:layout_toLeftOf="@+id/quantity_value"
+            android:layout_below="@+id/brand"
             android:paddingLeft="25dp"
             android:paddingTop="15dp"
-            android:text="@string/quantity"
+            android:text="Quantity:"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="20sp" />
-
         <TextView
             android:id="@+id/quantity_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_alignParentRight="true"
             android:layout_below="@+id/brand"
             android:paddingLeft="10dp"
@@ -89,5 +90,6 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="20sp" />
     </RelativeLayout>
+
 
 </android.support.v7.widget.CardView>

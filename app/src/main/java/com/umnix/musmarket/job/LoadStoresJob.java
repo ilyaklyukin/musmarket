@@ -1,10 +1,14 @@
 package com.umnix.musmarket.job;
 
 
-import com.path.android.jobqueue.Job;
-import com.path.android.jobqueue.JobManager;
-import com.path.android.jobqueue.Params;
-import com.path.android.jobqueue.RetryConstraint;
+import android.content.Context;
+import android.support.annotation.Nullable;
+
+import com.birbit.android.jobqueue.Job;
+import com.birbit.android.jobqueue.JobManager;
+import com.birbit.android.jobqueue.Params;
+import com.birbit.android.jobqueue.RetryConstraint;
+import com.birbit.android.jobqueue.config.Configuration;
 import com.umnix.musmarket.MusMarketApplication;
 import com.umnix.musmarket.bus.StoreBus;
 
@@ -14,15 +18,20 @@ import timber.log.Timber;
 
 public class LoadStoresJob extends Job {
 
-
-    @Inject
-    transient protected JobManager jobManager;
+    private JobManager jobManager;
 
     @Inject
     transient protected StoreBus storeBus;
 
-    public LoadStoresJob() {
+    public LoadStoresJob(Context context) {
         super(new Params(JobPriority.NORMAL).requireNetwork().groupBy("load-stores").persist());
+        Configuration.Builder builder = new Configuration.Builder(context);
+        jobManager = new JobManager(builder.build());
+    }
+
+    public LoadStoresJob start() {
+        jobManager.addJobInBackground(this);
+        return this;
     }
 
     @Override
@@ -39,7 +48,8 @@ public class LoadStoresJob extends Job {
     }
 
     @Override
-    protected void onCancel() {
+    protected void onCancel(int cancelReason, @Nullable Throwable throwable) {
+
     }
 
     @Override

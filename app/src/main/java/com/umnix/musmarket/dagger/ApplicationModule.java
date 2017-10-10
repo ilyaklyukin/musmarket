@@ -2,8 +2,8 @@ package com.umnix.musmarket.dagger;
 
 import android.content.Context;
 
-import com.path.android.jobqueue.JobManager;
-import com.path.android.jobqueue.config.Configuration;
+import com.birbit.android.jobqueue.JobManager;
+import com.birbit.android.jobqueue.config.Configuration;
 import com.umnix.musmarket.MusMarketApplication;
 import com.umnix.musmarket.R;
 import com.umnix.musmarket.bus.StoreBus;
@@ -25,8 +25,8 @@ public class ApplicationModule {
 
     private final MusMarketApplication musMarketApplication;
 
-    public ApplicationModule(MusMarketApplication kweakApplication) {
-        this.musMarketApplication = kweakApplication;
+    public ApplicationModule(MusMarketApplication musMarketApplication) {
+        this.musMarketApplication = musMarketApplication;
     }
 
     public void bootstrap() {
@@ -66,6 +66,6 @@ public class ApplicationModule {
     JobManager provideJobManager() {
         Configuration.Builder builder = new Configuration.Builder(musMarketApplication);
 
-        return new JobManager(musMarketApplication, builder.build());
+        return new JobManager(builder.build());
     }
 }

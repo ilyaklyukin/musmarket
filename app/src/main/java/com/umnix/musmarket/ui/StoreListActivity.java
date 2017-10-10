@@ -303,7 +303,7 @@ public class StoreListActivity extends AppCompatActivity {
                 Manifest.permission.CALL_PHONE);
 
         if (shouldRequest) {
-            openPermissionRemindDialog(R.string.permissions_phone_remind);
+            openPermissionRemindDialog(R.string.permissions_contact_remind);
         } else {
             requestPhonePermissions();
         }

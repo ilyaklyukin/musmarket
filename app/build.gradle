@@ -5,22 +5,20 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
     maven { url 'https://jitpack.io' }
     maven { url "http://dl.bintray.com/frakbot/maven" }
+    google()
 }
 
-apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
 
 android {
 
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "com.umnix.musmarket"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -34,7 +32,6 @@ android {
     buildTypes {
         all {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
         }
         debug {
             minifyEnabled false
@@ -43,16 +40,6 @@ android {
         release {
             debuggable false
             minifyEnabled true
-            //signingConfig signingConfigs.release
-        }
-    }
-
-    signingConfigs {
-        debug {
-            storeFile file('../keystores/debug.keystore')
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-            storePassword 'android'
         }
     }
 
@@ -72,39 +59,43 @@ android {
     }
 }
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.+'
-    compile 'com.android.support:design:23.4.0'
-    compile 'com.android.support:support-v4:23.4.+'
-
-    compile 'com.android.support:cardview-v7:23.4.+'
-
-    compile 'com.jakewharton.timber:timber:4.1.2'
-    compile 'com.jakewharton:butterknife:8.2.1'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
-
-    //rx
-    compile 'io.reactivex:rxandroid:1.1.0'
-    compile 'io.reactivex:rxjava:1.1.0'
-    compile 'nl.littlerobots.rxlint:rxlint:1.0'
-    // retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.0.1'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
-
-    apt 'com.google.dagger:dagger-compiler:2.5'
-    compile 'com.google.dagger:dagger:2.5'
-    compile 'javax.annotation:jsr250-api:1.0'
-    compile 'com.google.code.gson:gson:2.4'
-    compile 'com.google.android.gms:play-services-maps:9.4.0'
-    compile 'com.google.android.gms:play-services-location:9.4.0'
-    //jobs
-    compile 'com.birbit:android-priority-jobqueue:1.3.5'
+ext {
+    retrofitVersion = '2.3.0'
+    butterknifeVersion = '8.8.1'
+    googleServiceVersion = '11.4.2'
+    daggerVersion = '2.11'
 }
 
-retrolambda {
-    jvmArgs '-noverify'
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+
+    implementation "com.android.support:appcompat-v7:${android_support_lib_version}"
+    implementation "com.android.support:design:${android_support_lib_version}"
+    implementation "com.android.support:support-v4:${android_support_lib_version}"
+    implementation "com.android.support:cardview-v7:${android_support_lib_version}"
+
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
+    implementation "com.jakewharton:butterknife:${butterknifeVersion}"
+
+    //rx
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.3.0'
+    implementation 'nl.littlerobots.rxlint:rxlint:1.2'
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.9.0"
+
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+    implementation "com.google.dagger:dagger:${daggerVersion}"
+
+    implementation 'javax.annotation:jsr250-api:1.0'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation "com.google.android.gms:play-services-maps:${googleServiceVersion}"
+    implementation "com.google.android.gms:play-services-location:${googleServiceVersion}"
+    //jobs
+    implementation 'com.birbit:android-priority-jobqueue:2.0.1'
 }
