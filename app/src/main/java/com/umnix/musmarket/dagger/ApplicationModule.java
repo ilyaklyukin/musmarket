@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.birbit.android.jobqueue.JobManager;
 import com.birbit.android.jobqueue.config.Configuration;
+import com.umnix.log.TimberLogImplementation;
 import com.umnix.musmarket.MusMarketApplication;
 import com.umnix.musmarket.R;
 import com.umnix.musmarket.bus.StoreBus;
@@ -18,7 +19,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import timber.log.Timber;
 
 @Module
 public class ApplicationModule {
@@ -30,7 +30,10 @@ public class ApplicationModule {
     }
 
     public void bootstrap() {
-        Timber.plant(new Timber.DebugTree());
+        //A Tree for debug builds. Automatically infers the tag from the calling class.
+        //Timber.plant(new Timber.DebugTree());
+        //Timber.plant(new ReleaseTree());
+        TimberLogImplementation.init();
     }
 
     @Provides

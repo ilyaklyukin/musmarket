@@ -86,12 +86,9 @@ public class StoreListActivity extends AppCompatActivity {
     }
 
     private void addSubscription(Observable observable, Action1 onNext, String excMessage) {
-        Subscription subscription = observable.subscribe(onNext, new Action1<Throwable>() {
-            @Override
-            public void call(Throwable throwable) {
-                Timber.e(throwable, excMessage);
-                Snackbar.make(rootLayout, R.string.something_went_wrong, Snackbar.LENGTH_LONG).show();
-            }
+        Subscription subscription = observable.subscribe(onNext, throwable -> {
+            Timber.e((Throwable) throwable, excMessage);
+            Snackbar.make(rootLayout, R.string.something_went_wrong, Snackbar.LENGTH_LONG).show();
         });
         subscriptions.add(subscription);
     }
@@ -246,7 +243,6 @@ public class StoreListActivity extends AppCompatActivity {
                 } else {
                     storeBus.phoneGranted(false);
                 }
-                return;
             }
         }
     }

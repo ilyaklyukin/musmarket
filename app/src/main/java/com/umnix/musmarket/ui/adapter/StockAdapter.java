@@ -51,11 +51,11 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
 
         public ViewHolder(View view) {
             super(view);
-            typeText = (TextView) view.findViewById(R.id.instrument_type);
-            titleText = (TextView) view.findViewById(R.id.instrument_title);
-            brandText = (TextView) view.findViewById(R.id.brand);
-            priceText = (TextView) view.findViewById(R.id.price_value);
-            quantityText = (TextView) view.findViewById(R.id.quantity_value);
+            typeText = view.findViewById(R.id.instrument_type);
+            titleText = view.findViewById(R.id.instrument_title);
+            brandText = view.findViewById(R.id.brand);
+            priceText = view.findViewById(R.id.price_value);
+            quantityText = view.findViewById(R.id.quantity_value);
         }
     }
 }
